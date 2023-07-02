@@ -69,48 +69,66 @@ let countryItem = document.querySelector('.country-item');
 
 country.forEach((value) => {
     value.addEventListener('click', (e) => {
-        window.location.href = "country.html";
+        window.location.href = "./country.html";
 
-        data.forEach((value) => {
-        let card = document.createElement('div');
-        card.classList.add('country-card');
-            card.textContent = 
-            countryItem.append(card);
-        })
     })
 })
-// country.addEventListener('click', (e) => {
-//     window.location.href = "country.html"
-//     console.log(e.target)
-//     // data.forEach((value) => {
-//     //     let card = document.createElement('div');
-//     //     card.classList.add('country-card');
 
-//     //     card.innerHTML = `
-//     //         <img class="country-card__img" src="${value.flag}" alt="flag">
-//     //         <div class="country-card__body">
-//     //             <h5 class="country-card__body--name">Belgium</h5>
-//     //             <div class="country-card__body--info">
-//     //                 <ul>
-//     //                     <li> Native Name: <span>België</span></li>
-//     //                     <li> Population:  <span>11,319,511</span></li>
-//     //                     <li> Region: <span>Europe</span></li>
-//     //                     <li> Sub Region: <span>Western Europe</span></li>
-//     //                     <li> Capital: <span>Brussels</span></li>
-//     //                 </ul>
-//     //                 <ul>
-//     //                     <li>Top Level Domain: <span>.be</span></li>
-//     //                     <li>Currencies: <span>Euro</span></li>
-//     //                     <li>Languages: <span>Dutch, French, German</span></li>
-//     //                 </ul>
-//     //             </div>
 
-//     //             <div class="country-card__body--border">
-//     //                 <p>Border Countries: </p> <span>France</span> <span>Germany</span> <span>Netherlands</span>
-//     //             </div>
-//     //         </div>       
-//     //     `
 
-//     //     countryItem.append(card);
-//     // })
-// })
+
+
+/////// Dark and light mode
+
+const darkModeBtn = document.querySelector('.header__mode');
+const header = document.querySelector('header');
+const body = document.querySelector('body');
+const card = document.querySelectorAll('.countries-card');
+const cardBody = document.querySelectorAll('.countries-card__body');
+
+const inputMode = document.querySelector('.countries-search__input');
+const selectMode = document.querySelector('.countries-search__select');
+
+let darkMode = localStorage.getItem("dark-mode");
+
+const enableDarkMode = () => {
+    header.classList.add("header-mode-theme");
+    body.classList.add("body-mode-theme");
+    inputMode.classList.add("card-mode-theme");
+    selectMode.classList.add("card-mode-theme");
+    card.forEach((value) => {
+        value.classList.add("card-mode-theme");
+    })
+    cardBody.forEach((value) => {
+        value.classList.add("card-mode-theme");
+    })
+    // cardBody.classList.add("body-mode-theme");
+    localStorage.setItem("dark-mode", "enabled");
+};
+
+const disableDarkMode = () => {
+    header.classList.remove("header-mode-theme");
+    body.classList.remove("body-mode-theme");
+    inputMode.classList.remove("card-mode-theme");
+    selectMode.classList.remove("card-mode-theme");
+    card.forEach((value) => {
+        value.classList.remove("card-mode-theme");
+    })
+    cardBody.forEach((value) => {
+        value.classList.remove("card-mode-theme");
+    })
+    localStorage.setItem("dark-mode", "disabled");
+};
+
+if (darkMode === "enabled") {
+    enableDarkMode(); // set state of darkMode on page load
+}
+
+darkModeBtn.addEventListener("click", (e) => {
+    darkMode = localStorage.getItem("dark-mode"); // update darkMode when clicked
+    if (darkMode === "disabled") {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
+});

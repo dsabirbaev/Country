@@ -362,6 +362,8 @@ body {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   font-style: normal;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .container {
@@ -380,6 +382,8 @@ header {
   background: #FFF;
   -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
           box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 header .wrapper {
   display: -webkit-box;
@@ -409,6 +413,22 @@ header .header__mode {
           column-gap: 5px;
   font-size: 16px;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.body-mode-theme {
+  background-color: #202C36;
+  color: #fff;
+}
+
+.header-mode-theme {
+  background: #2B3844;
+  color: #fff;
+}
+
+.card-mode-theme {
+  background: #2B3844 !important;
+  color: #fff !important;
 }
 
 @media only screen and (max-width: 450px) {
@@ -489,42 +509,31 @@ header .header__mode {
           column-gap: 24px;
   padding: 0px 32px;
 }
-#countries .countries-search__input input {
+#countries .countries-search__input--inp {
   width: 100%;
   font-weight: 400;
-  color: #848484;
   font-size: 14px;
-  font-family: "Nunito Sans", sans-serif;
+  background-color: transparent;
 }
-#countries .countries-search__input input::-webkit-input-placeholder {
+#countries .countries-search__input--inp::-webkit-input-placeholder {
   font-weight: 400;
-  color: #848484;
   font-size: 14px;
-  font-family: "Nunito Sans", sans-serif;
 }
-#countries .countries-search__input input::-moz-placeholder {
+#countries .countries-search__input--inp::-moz-placeholder {
   font-weight: 400;
-  color: #848484;
   font-size: 14px;
-  font-family: "Nunito Sans", sans-serif;
 }
-#countries .countries-search__input input:-ms-input-placeholder {
+#countries .countries-search__input--inp:-ms-input-placeholder {
   font-weight: 400;
-  color: #848484;
   font-size: 14px;
-  font-family: "Nunito Sans", sans-serif;
 }
-#countries .countries-search__input input::-ms-input-placeholder {
+#countries .countries-search__input--inp::-ms-input-placeholder {
   font-weight: 400;
-  color: #848484;
   font-size: 14px;
-  font-family: "Nunito Sans", sans-serif;
 }
-#countries .countries-search__input input::placeholder {
+#countries .countries-search__input--inp::placeholder {
   font-weight: 400;
-  color: #848484;
   font-size: 14px;
-  font-family: "Nunito Sans", sans-serif;
 }
 #countries .countries-search__select {
   border-radius: 5px;
@@ -578,9 +587,9 @@ header .header__mode {
 }
 #countries .countries-cards .countries-card__body {
   padding: 24px;
+  color: #111517;
 }
 #countries .countries-cards .countries-card__body--name {
-  color: #111517;
   font-size: 18px;
   font-weight: 800;
   margin-bottom: 16px;
@@ -594,7 +603,6 @@ header .header__mode {
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 8px;
-  color: #111517;
   font-size: 14px;
   font-weight: 600;
 }
@@ -728,9 +736,9 @@ header .header__mode {
   }
   #countries .countries-cards .countries-card__body {
     padding: 24px;
+    color: #111517;
   }
   #countries .countries-cards .countries-card__body--name {
-    color: #111517;
     font-size: 18px;
     font-weight: 800;
     margin-bottom: 16px;
@@ -744,7 +752,315 @@ header .header__mode {
         -ms-flex-direction: column;
             flex-direction: column;
     row-gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  #countries .countries-cards .countries-card__body--list span {
+    font-weight: 300;
+  }
+}
+@media only screen and (max-width: 720px) {
+  #countries {
+    margin-top: 48px;
+    width: 100%;
+  }
+  #countries .countries-search {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 48px;
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
+  }
+  #countries .countries-search__input {
+    border-radius: 5px;
+    background: #FFF;
+    -webkit-box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+    width: 480px;
+    height: 56px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 24px;
+       -moz-column-gap: 24px;
+            column-gap: 24px;
+    padding: 0px 32px;
+  }
+  #countries .countries-search__input input {
+    width: 100%;
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input::-webkit-input-placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input::-moz-placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input:-ms-input-placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input::-ms-input-placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input::placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__select {
+    border-radius: 5px;
+    background: #FFF;
+    -webkit-box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+    width: 200px;
+    height: 56px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-left: 24px;
     color: #111517;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  #countries .countries-search__select option {
+    width: 200px;
+  }
+  #countries .countries-cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-column-gap: 10px;
+       -moz-column-gap: 10px;
+            column-gap: 10px;
+    row-gap: 67px;
+  }
+  #countries .countries-cards .countries-card {
+    width: 264px;
+    border-radius: 5px;
+    background: #FFF;
+    -webkit-box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+            box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+  }
+  #countries .countries-cards .countries-card__img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    width: 264px;
+    height: 160px;
+    border-radius: 5px 5px 0px 0px;
+  }
+  #countries .countries-cards .countries-card__body {
+    padding: 24px;
+    color: #111517;
+  }
+  #countries .countries-cards .countries-card__body--name {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  #countries .countries-cards .countries-card__body--list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  #countries .countries-cards .countries-card__body--list span {
+    font-weight: 300;
+  }
+}
+@media only screen and (max-width: 540px) {
+  #countries {
+    margin-top: 48px;
+    width: 100%;
+  }
+  #countries .countries-search {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    row-gap: 40px;
+    margin-bottom: 48px;
+    -webkit-column-gap: 0px;
+       -moz-column-gap: 0px;
+            column-gap: 0px;
+  }
+  #countries .countries-search__input {
+    border-radius: 5px;
+    background: #FFF;
+    -webkit-box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+    width: 480px;
+    height: 56px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 24px;
+       -moz-column-gap: 24px;
+            column-gap: 24px;
+    padding: 0px 32px;
+  }
+  #countries .countries-search__input input {
+    width: 100%;
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input::-webkit-input-placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input::-moz-placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input:-ms-input-placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input::-ms-input-placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__input input::placeholder {
+    font-weight: 400;
+    color: #848484;
+    font-size: 14px;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  #countries .countries-search__select {
+    border-radius: 5px;
+    background: #FFF;
+    -webkit-box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+    width: 200px;
+    height: 56px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-left: 24px;
+    color: #111517;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  #countries .countries-search__select option {
+    width: 200px;
+  }
+  #countries .countries-cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-column-gap: 10px;
+       -moz-column-gap: 10px;
+            column-gap: 10px;
+    row-gap: 67px;
+  }
+  #countries .countries-cards .countries-card {
+    width: 264px;
+    border-radius: 5px;
+    background: #FFF;
+    -webkit-box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+            box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+  }
+  #countries .countries-cards .countries-card__img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    width: 264px;
+    height: 160px;
+    border-radius: 5px 5px 0px 0px;
+  }
+  #countries .countries-cards .countries-card__body {
+    padding: 24px;
+    color: #111517;
+  }
+  #countries .countries-cards .countries-card__body--name {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  #countries .countries-cards .countries-card__body--list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 8px;
     font-size: 14px;
     font-weight: 600;
   }
@@ -887,9 +1203,9 @@ header .header__mode {
   }
   #countries .countries-cards .countries-card__body {
     padding: 24px;
+    color: #111517;
   }
   #countries .countries-cards .countries-card__body--name {
-    color: #111517;
     font-size: 18px;
     font-weight: 800;
     margin-bottom: 16px;
@@ -903,7 +1219,6 @@ header .header__mode {
         -ms-flex-direction: column;
             flex-direction: column;
     row-gap: 8px;
-    color: #111517;
     font-size: 14px;
     font-weight: 600;
   }
