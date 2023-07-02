@@ -81,6 +81,7 @@ country.forEach((value) => {
 /////// Dark and light mode
 
 const darkModeBtn = document.querySelector('.header__mode');
+const darkModeBtnText = document.querySelector('.header__mode p');
 const header = document.querySelector('header');
 const body = document.querySelector('body');
 const card = document.querySelectorAll('.countries-card');
@@ -93,6 +94,7 @@ let darkMode = localStorage.getItem("dark-mode");
 
 const enableDarkMode = () => {
     header.classList.add("header-mode-theme");
+    darkModeBtnText.textContent = "Light Mode";
     body.classList.add("body-mode-theme");
     inputMode.classList.add("card-mode-theme");
     selectMode.classList.add("card-mode-theme");
@@ -108,6 +110,7 @@ const enableDarkMode = () => {
 
 const disableDarkMode = () => {
     header.classList.remove("header-mode-theme");
+    darkModeBtnText.textContent = "Dark Mode";
     body.classList.remove("body-mode-theme");
     inputMode.classList.remove("card-mode-theme");
     selectMode.classList.remove("card-mode-theme");
@@ -131,4 +134,6 @@ darkModeBtn.addEventListener("click", (e) => {
     } else {
       disableDarkMode();
     }
+
+   
 });
