@@ -1,5 +1,20 @@
 
 
+////////////////////// Normalize data ///////////////////////
+
+const allCountries = data.map((el) => {
+    return {
+        image: el.flags.png,
+        name: el.name,
+        population: `${el.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`,
+        region: el.region,
+        capital: el.capital
+    }
+})
+
+
+
+
 
 ////////////////////  Render dates for html page
 
@@ -14,7 +29,7 @@ function renderData(data){
 
         card.innerHTML = `
             
-            <img class="countries-card__img" src="${value.flag}" alt="flag">
+            <img class="countries-card__img" src="${value.image}" alt="flag">
            
             <div class="countries-card__body">
                 <h5 class="countries-card__body--name">${value.name}</h5>
@@ -33,7 +48,7 @@ function renderData(data){
 
 
 
-renderData(data);
+renderData(allCountries);
 
 //////////////////////////////////////////////////////////////
 

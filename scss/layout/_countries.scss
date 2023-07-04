@@ -60,6 +60,7 @@
         .countries-card {
             width: 264px;
             border-radius: 5px;
+            overflow: hidden;
             background: #FFF;
             box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
             cursor: pointer;
@@ -68,8 +69,6 @@
                 object-position: center;
                 width: 264px;
                 height: 160px;
-                border-radius: 5px 5px 0px 0px;
-                
             }
            
             &__body {
@@ -165,6 +164,7 @@
             .countries-card {
                 width: 264px;
                 border-radius: 5px;
+                overflow: hidden;
                 background: #FFF;
                 box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
                 cursor: pointer;
@@ -173,8 +173,6 @@
                     object-position: center;
                     width: 264px;
                     height: 160px;
-                    border-radius: 5px 5px 0px 0px;
-
                 }
                
                 &__body {
@@ -269,6 +267,7 @@
             .countries-card {
                 width: 264px;
                 border-radius: 5px;
+                overflow: hidden;
                 background: #FFF;
                 box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
                 cursor: pointer;
@@ -277,8 +276,6 @@
                     object-position: center;
                     width: 264px;
                     height: 160px;
-                    border-radius: 5px 5px 0px 0px;
-
                 }
                
                 &__body {
@@ -376,6 +373,7 @@
             .countries-card {
                 width: 264px;
                 border-radius: 5px;
+                overflow: hidden;
                 background: #FFF;
                 box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
                 cursor: pointer;
@@ -384,8 +382,6 @@
                     object-position: center;
                     width: 264px;
                     height: 160px;
-                    border-radius: 5px 5px 0px 0px;
-
                 }
                
                 &__body {
@@ -485,6 +481,7 @@
             .countries-card {
                 width: 264px;
                 border-radius: 5px;
+                overflow: hidden;
                 background: #FFF;
                 box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
                 cursor: pointer;
@@ -493,7 +490,6 @@
                     object-position: center;
                     width: 264px;
                     height: 160px;
-                    border-radius: 5px 5px 0px 0px;
                 }
                
                 &__body {
