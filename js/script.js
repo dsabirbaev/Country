@@ -21,7 +21,6 @@ const allCountries = data.map((el) => {
 let cards = document.querySelector('.countries-cards');
 
 
-
 function renderData(data){
     data.forEach((value) => {
         let card = document.createElement('div');
@@ -78,7 +77,21 @@ select.addEventListener('change', (e) => {
     renderData(result);
 })
 
-/////////////////////////////////////////////////////////////////////////
+////////////////// Input find name countries /////////////////
+
+const input = document.querySelector('.countries-search__input--inp');
+input.addEventListener('input', (e) => {
+    cards.innerHTML = "";
+
+    const result = allCountries.filter((el) => {
+        return el.name.toLowerCase().includes(e.target.value.toLowerCase());
+    })
+
+    renderData(result);
+})
+
+
+/////////////////// Page about country
 
 let country = document.querySelectorAll('.countries-card');
 let countryItem = document.querySelector('.country-item');
@@ -86,9 +99,11 @@ let countryItem = document.querySelector('.country-item');
 
 country.forEach((value) => {
     value.addEventListener('click', (e) => {
+      
         window.location.href = "./country.html";
 
     })
+
 })
 
 
