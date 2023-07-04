@@ -53,10 +53,9 @@
     }
 
     .countries-cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        row-gap: 67px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 67px;
         .countries-card {
             width: 264px;
             border-radius: 5px;
@@ -96,7 +95,7 @@
 }
 
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 1024px) {
     #countries {
         margin-top: 48px;
         width: 100%;
@@ -156,9 +155,9 @@
         }
     
         .countries-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0;
             column-gap: 10px;
             row-gap: 67px;
             .countries-card {
@@ -199,7 +198,7 @@
     }
     
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 850px) {
     #countries {
         margin-top: 48px;
         width: 100%;
@@ -259,9 +258,9 @@
         }
     
         .countries-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            justify-items: center;
             column-gap: 10px;
             row-gap: 67px;
             .countries-card {
@@ -303,7 +302,7 @@
     
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 600px) {
     #countries {
         margin-top: 48px;
         width: 100%;
@@ -365,9 +364,9 @@
         }
     
         .countries-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            justify-items: center;
             column-gap: 10px;
             row-gap: 67px;
             .countries-card {
@@ -471,11 +470,9 @@
         }
     
         .countries-cards {
-       
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            justify-items: center;
             column-gap: 0px;
             row-gap: 67px;
             .countries-card {

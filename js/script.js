@@ -54,13 +54,15 @@ renderData(allCountries);
 
 //////////////////// Select option for filter countries by name;
 
-const names = [];
-const select = document.querySelector('.countries-search__select');
-data.forEach((value) => {
-    names.push(value.name);
-})
+const regions = [];
 
-names.forEach((value) => {
+data.forEach((value) => {
+    regions.push(value.region);
+})
+const uniqueRegion = Array.from(new Set(regions)); 
+
+const select = document.querySelector('.countries-search__select');
+uniqueRegion.forEach((value) => {
     let option = document.createElement('option');
     option.textContent = value;
     select.append(option);
@@ -69,8 +71,8 @@ names.forEach((value) => {
 select.addEventListener('change', (e) => {
     cards.innerHTML = "";
 
-    const result = data.filter((el) => {
-        return el.name.toLowerCase() == e.target.value.toLowerCase()
+    const result = allCountries.filter((el) => {
+        return el.region.toLowerCase() === e.target.value.toLowerCase();
     })
 
     renderData(result);
