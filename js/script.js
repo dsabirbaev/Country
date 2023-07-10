@@ -3,18 +3,30 @@
 ////////////////////// Normalize data ///////////////////////
 
 const allCountries = data.map((el) => {
+    const currencies = el.currencies ? el.currencies.map(value => value.name) : [];
+    const languages = el.languages ? el.languages.map(value => value.name) : [];
+    const borders = el.borders ? el.borders.map(value => value) : [];
     return {
         image: el.flags.png,
         name: el.name,
         population: `${el.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`,
         region: el.region,
-        capital: el.capital
+        capital: el.capital,
+        subregion: el.subregion,
+        nativeName: el.nativeName,
+        topLevelDomain: el.topLevelDomain,
+        currency: currencies,
+        lang: languages,
+        borders: borders
     }
 })
 
+const countriesWithId = allCountries.map((country, index) => {
+    return { id: index+1, ...country };
+});
 
 
-
+//console.log(countriesWithId)
 
 ////////////////////  Render dates for html page
 
@@ -22,7 +34,7 @@ let cards = document.querySelector('.countries-cards');
 
 
 function renderData(data){
-    data.forEach((value) => {
+    data.forEach((value, index) => {
         let card = document.createElement('div');
         card.classList.add('countries-card');
 
@@ -38,8 +50,10 @@ function renderData(data){
                     <li>Capital: <span>${value.capital}</span></li>
                 </ul>
             </div>
-        `
 
+            <button class="countries-card__btn">More...</button>
+        `
+        card.dataset.country = index+1;
         cards.append(card);
     })
 }
@@ -91,20 +105,7 @@ input.addEventListener('input', (e) => {
 })
 
 
-/////////////////// Page about country
 
-let country = document.querySelectorAll('.countries-card');
-let countryItem = document.querySelector('.country-item');
-
-
-country.forEach((value) => {
-    value.addEventListener('click', (e) => {
-      
-        window.location.href = "./country.html";
-
-    })
-
-})
 
 
 
@@ -169,3 +170,70 @@ darkModeBtn.addEventListener("click", (e) => {
 
    
 });
+
+
+/////////////////// Page about country
+let countriesCard = document.querySelector('.countries-cards')
+let btnMore = document.querySelector('.countries-card__btn')
+let modalWrap = document.querySelector('.modal-wrapper')
+
+
+function findElement(data, id){
+    return data.filter(item => item.id === +id);
+}
+
+countriesCard.addEventListener('click', (e) => {
+    if(e.target.classList.contains('countries-card__btn')){
+        const countryID = e.target.parentNode.getAttribute('data-country');
+        console.log(countryID)
+        const result = findElement(countriesWithId, countryID)[0];
+        localStorage.setItem('country', JSON.stringify(result));
+        modalWrap.style.cssText = "display: grid"
+        renderModal();
+    }
+})
+
+
+let countryItem = document.querySelector('.country-item');
+
+function renderModal(){
+    let {image, name, population, region, capital, subregion, nativeName, topLevelDomain, currency, lang, borders } = JSON.parse(localStorage.getItem('country'))
+    let modalResult = "";
+    modalResult += `
+        <div class="country-card">
+            <img class="country-card__img" src="${image}" alt="flag">
+            <div class="country-card__body">
+                <h5 class="country-card__body--name">${name}</h5>
+                <div class="country-card__body--info">
+                    <ul>
+                        <li> Native Name: <span>${nativeName}</span></li>
+                        <li> Population:  <span>${population}</span></li>
+                        <li> Region: <span>${region}</span></li>
+                        <li> Sub Region: <span>${subregion}</span></li>
+                        <li> Capital: <span>${capital}</span></li>
+                    </ul>
+                    <ul>
+                        <li>Top Level Domain: <span>${topLevelDomain}</span></li>
+                        <li>Currencies: <span>${currency}</span></li>
+                        <li>Languages: <span>${lang}</span></li>
+                    </ul>
+                </div>
+
+                <div class="country-card__body--border">
+                    <p>Border Countries: </p> <span class="border-divide">${borders}</span>
+                </div>
+            </div>
+        </div> 
+    `
+
+    countryItem.innerHTML = modalResult;
+    
+}
+
+
+let home = document.querySelector('.country__home')
+
+home.addEventListener('click', () => {
+    
+    modalWrap.style.cssText = "display: none"
+})

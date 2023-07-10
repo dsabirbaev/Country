@@ -90,6 +90,18 @@
                     }
                 }
             }
+
+            &__btn {
+                width: 100%;
+                font-weight: 700px;
+                padding: 5px 0px;
+                background-color: #008CBA;
+                font-size: 25px;
+                font-family: 'Nunito Sans', sans-serif;
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
         }
     }
 }

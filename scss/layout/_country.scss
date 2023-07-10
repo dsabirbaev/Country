@@ -1,10 +1,23 @@
-#country{
-    margin-top: 90px;
-    width: 100%;
-
-    .wrapper{
-        padding-bottom: 260px;
+.modal-wrapper{
+    
+    display: grid;
+    place-items: center;
+    background-color: rgba(0,0,0,0.30);
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    display: none;
+    .modal-content{
+        
+        background-color: $color-white;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        padding: 20px;
         .country__home{
+            
             display: flex;
             align-items: center;
             column-gap: 10px;
@@ -15,6 +28,7 @@
 
         
         .country-card{
+            
             display: flex;
             align-items: center;
             column-gap: 120px;
@@ -34,7 +48,7 @@
                 }
                 &--info{
                     display: flex;
-                    justify-content: space-between;
+                    column-gap: 150px;
                     margin-bottom: 70px;
                     ul{
                         display: flex;
@@ -69,6 +83,7 @@
                         box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
                         text-align: center;
                     }
+                    
                 }
             }
         }
